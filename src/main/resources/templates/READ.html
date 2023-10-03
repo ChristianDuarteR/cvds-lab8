@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -15,10 +15,10 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link" href="CREATE.html">CREATE</a>
+          <a class="nav-link" href="/create">CREATE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="true" href="READ.html">READ</a>
+          <a class="nav-link active" aria-current="true" href="/read">READ</a>
         </li>
       </ul>
     </div>
@@ -37,27 +37,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td><a href="UPDATE.html" class="btn btn-warning">Update</a></td>
-          <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td><a href="UPDATE.html" class="btn btn-warning">Update</a></td>
-          <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-          <td><a href="UPDATE.html" class="btn btn-warning">Update</a></td>
+        <!-- Itera sobre la lista de empleados y muestra cada uno -->
+        <tr th:each="employee : ${employees}">
+          <th scope="row" th:text="${employee.role}"></th>
+          <td th:text="${employee.employeeId}"></td>
+          <td th:text="${employee.firstName}"></td>
+          <td th:text="${employee.lastName}"></td>
+          <td><a th:href="@{'/update/' + ${employee.employeeId}}" class="btn btn-warning">Update</a></td>
           <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button></td>
         </tr>
         </tbody>
@@ -91,10 +77,10 @@
 
 <script>
   document.getElementById('confirmDelete').addEventListener('click', function () {
-      // Coloca aquí la lógica para eliminar el registro
-      alert('Record deleted successfully!');
-      // Cierra el modal después de la acción
-      $('#exampleModal').modal('hide');
+    // Coloca aquí la lógica para eliminar el registro
+    alert('Record deleted successfully!');
+    // Cierra el modal después de la acción
+    $('#exampleModal').modal('hide');
   });
 </script>
 </body>

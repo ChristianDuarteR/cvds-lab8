@@ -10,19 +10,19 @@ import jakarta.persistence.Table;
 public class Employee {
     @Id
     @Column(name = "EMPLOYEE_ID")
-    private String employeeId;
+    public String employeeId;
 
     @Column(name = "FIRST_NAME")
-    private String firstName;
+    public String firstName;
 
     @Column(name = "LAST_NAME")
-    private String lastName;
+    public String lastName;
 
     @Column(name = "ROLE")
-    private String role;
+    public String role;
 
     @Column(name = "SALARY")
-    private Double salary;
+    public Double salary;
 
     public Employee() {
     }
@@ -35,7 +35,45 @@ public class Employee {
         this.salary = salary;
     }
 
-    // Getters y setters
+    public void setFirstName(String firstName){
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = Double.valueOf(salary);
+    }
+
+    public void setEmployeeId(String id){
+        this.employeeId = id;
+    }
+
+    public String getEmployeeId(){
+        return employeeId;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String getRole(){
+        return role;
+    }
+
+    public Double getSalary(){
+        return salary;
+    }
 
     @Override
     public int hashCode() {
