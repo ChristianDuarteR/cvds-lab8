@@ -33,12 +33,12 @@ public class EmployeeService{
         employeeRepository.save(user);
     }
 
-
     public void deleteUser(Long userId) {
-        employeeRepository.deleteById(userId);
+
+        employeeRepository.deleteById(Long.valueOf(userId));
     }
 
-    public Employee getEmployeeById(String employeeId) {
+    public Employee getEmployeeById(Long employeeId) {
         return employeeRepository.getReferenceById(Long.valueOf(employeeId));
     }
 }

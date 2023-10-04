@@ -36,33 +36,41 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @GetMapping("/employee/{employeeId}")
-    public String viewEmployee(@PathVariable String employeeId, Model model) {
+    @GetMapping("/employees/{employeeId}")
+    public String viewEmployee(@PathVariable Long employeeId, Model model) {
         Employee employee = employeeService.getEmployeeById(employeeId);
         model.addAttribute("employee", employee);
         return "READ";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable String id, @RequestBody Employee updatedEmployee) {
-        Employee existingEmployee = employeeService.getUserById(Long.valueOf(id));
-        if (existingEmployee == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        updatedEmployee.setEmployeeId(id);
-        employeeService.updateUser(updatedEmployee);
-        return ResponseEntity.ok(updatedEmployee);
+    @GetMapping("/update/{employeeId}")
+    public String loadUpdateEmployeeForm(@PathVariable Long employeeId, Model model) {
+        Employee employee = employeeService.getEmployeeById(employeeId);
+        model.addAttribute("employee", employee);
+        return "UPDATE";
     }
 
+    @PostMapping("/update/{employeeId}")
+    public String updateEmployee(@PathVariable Long employeeId, @ModelAttribute Employee updatedEmployee) {
+        Employee existingEmployee = employeeService.getEmployeeById(employeeId);
+        if (existingEmployee == null) {
+            return "redirect:/employees";
+        }
+
+        updatedEmployee.setEmployeeId(employeeId);
+        employeeService.updateUser(updatedEmployee);
+        return "redirect:/employees";
+    }
+
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable String id) {
-        Employee existingEmployee = employeeService.getUserById(Long.valueOf(id));
+    public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
+        Employee existingEmployee = employeeService.getUserById(id);
         if (existingEmployee == null) {
             return ResponseEntity.notFound().build();
         }
 
-        employeeService.deleteUser(Long.valueOf(id));
+        employeeService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
 }
