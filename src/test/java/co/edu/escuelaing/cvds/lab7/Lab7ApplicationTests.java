@@ -9,5 +9,4 @@ class Lab7ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

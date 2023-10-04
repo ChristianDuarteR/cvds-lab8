@@ -62,15 +62,9 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
-        Employee existingEmployee = employeeService.getUserById(id);
-        if (existingEmployee == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        employeeService.deleteUser(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping("/delete/{employeeId}")
+    public String deleteEmployee(@PathVariable long employeeId) {
+        employeeService.deleteUser(employeeId);
+        return "redirect:/employees";
     }
 }
