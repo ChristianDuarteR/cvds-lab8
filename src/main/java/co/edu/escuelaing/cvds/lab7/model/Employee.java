@@ -34,13 +34,13 @@ public class Employee {
 
      public Employee(Long employeeId, String firtsName, String lastName, String role, double salary) {
         this.employeeId = employeeId;
-        this.firtsName = firtsName;
+        this.firstName = firtsName;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
     }
     public Employee( String firtsName, String lastName, String role, double salary) {
-        this.firtsName = firtsName;
+        this.firstName = firtsName;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
@@ -53,7 +53,7 @@ public class Employee {
     }
 
     public String getFirtsName() {
-        return firtsName;
+        return firstName;
     }
 
     public String getLastName() {
@@ -76,7 +76,7 @@ public class Employee {
     }
 
     public void setFirtsName(String firtsName) {
-        this.firtsName = firtsName;
+        this.firstName = firtsName;
     }
 
     public void setLastName(String lastName) {
@@ -97,11 +97,11 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firtsName, employee.firtsName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role);
+        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, firtsName, lastName, role, salary);
+        return Objects.hash(employeeId, firstName, lastName, role, salary);
     }
 }

@@ -35,7 +35,7 @@ public class EmployeeServiceTest {
      void setup(){
         employee = Employee.builder()
                 .employeeId(1L)
-                .firtsName("Juan")
+                .firstName("Juan")
                 .lastName("Daza")
                 .role("Ingeniero")
                 .salary(7500000)
@@ -44,13 +44,13 @@ public class EmployeeServiceTest {
     @Test
      void testConsultEmployeeById(){
         when(employeeRepository.findById(1L)).thenReturn(Optional.of(employee));
-        Optional<Employee> actualEmployee = employeeService.getEmployeeById(1L);
+        Optional<Employee> actualEmployee = Optional.ofNullable(employeeService.getEmployeeById(1L));
         assertEquals(employee, actualEmployee.orElse(null));
     }
     @Test
      void testConsultNonExistentEmployee(){
         when(employeeRepository.findById(1L)).thenReturn(Optional.empty());
-        Optional<Employee> actualEmployee = employeeService.getEmployeeById(1L);
+        Optional<Employee> actualEmployee = Optional.ofNullable(employeeService.getEmployeeById(1L));
         assertFalse(actualEmployee.isPresent());
     }
 }
