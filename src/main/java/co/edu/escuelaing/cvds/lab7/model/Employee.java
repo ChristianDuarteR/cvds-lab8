@@ -5,6 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import lombok.Builder;
+import java.util.Objects;
+
+@Builder
 @Entity
 @Table(name = "EMPLOYEE")
 public class Employee {
