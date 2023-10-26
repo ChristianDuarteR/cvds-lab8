@@ -34,11 +34,10 @@ public class EmployeeServiceTest {
     @BeforeEach
      void setup(){
         employee = Employee.builder()
-                .employeeId(1L)
-                .firstName("Juan")
-                .lastName("Daza")
-                .role("Ingeniero")
-                .salary(7500000.0)
+                .firstName("Johann")
+                .lastName("Amaya")
+                .role("Ing")
+                .salary(8794000.0)
                 .build();
     }
     @Test
