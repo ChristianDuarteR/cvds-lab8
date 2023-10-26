@@ -38,7 +38,7 @@ public class EmployeeServiceTest {
                 .firstName("Juan")
                 .lastName("Daza")
                 .role("Ingeniero")
-                .salary(7500000)
+                .salary(7500000.0)
                 .build();
     }
     @Test
