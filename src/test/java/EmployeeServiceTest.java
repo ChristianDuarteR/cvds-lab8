@@ -35,10 +35,10 @@ public class EmployeeServiceTest {
      void setup(){
         employee = Employee.builder()
                 .employeeId(1L)
-                .firtsName("Juan")
-                .lastName("Daza")
-                .role("Ingeniero")
-                .salary(7500000)
+                .firtsName("Johann")
+                .lastName("Amaya")
+                .role("Ing")
+                .salary(8794000)
                 .build();
     }
     @Test
