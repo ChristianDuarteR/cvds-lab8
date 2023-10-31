@@ -49,7 +49,17 @@ jobs:
   
       - name: Build with Maven
         run: mvn package
-  
+
+      - name: Login via Az module
+        uses: azure/login@v1
+        with:
+          credentials: ${{secrets.AZURE_CREDENTIALS}}
+          enable-AzPSSession: true
+
+      - run: |
+          Get-AzVM -ResourceGroupName "appService1"
+      
+
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
