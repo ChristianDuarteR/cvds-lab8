@@ -41,12 +41,13 @@ jobs:
         run: mvn verify
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
 
       - uses: azure/login@v1
         with:
-          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - run: |
           az webapp list --query "[?state=='Running']"
