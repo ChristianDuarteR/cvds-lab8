@@ -41,23 +41,12 @@ jobs:
         run: mvn verify
 
   deploy:
-    runs-on: windows-latest
-    needs: test
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: java-app
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+      - uses: azure/login@v1
         with:
-          app-name: 'laboratorio8'
-          slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_7b3e813164e144e08aea15be72b8b3b0 }}
-          package: '*.jar'
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - run: |
+          az webapp list --query "[?state=='Running']"
