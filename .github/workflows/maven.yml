@@ -48,6 +48,15 @@ jobs:
         run:
           curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
           az --version
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'webAppLaboratorio8'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: '${{ github.workspace }}/target/*.jar'
+
       - name: Azure Login
         uses: azure/login@v1
         with:
