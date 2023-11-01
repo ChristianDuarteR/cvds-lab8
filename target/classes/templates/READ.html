@@ -45,6 +45,7 @@
           <td th:text="${employee.company}"></td>
           <td th:text="${employee.byologicSex}"></td>
           <td><a th:href="@{'/update/' + ${employee.employeeId}}" class="btn btn-warning">Update</a></td>
+
           <td>
             <!-- Formulario para la eliminación del empleado -->
             <form th:action="@{'/delete/' + ${employee.employeeId}}" method="post">

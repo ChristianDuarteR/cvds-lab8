@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeService{
+public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
@@ -17,28 +17,23 @@ public class EmployeeService{
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee getUserById(Long userId) {
-        return employeeRepository.findById(userId).orElse(null);
+    public Employee getEmployeeById(Long employeeId) {
+        return employeeRepository.findById(employeeId).orElse(null);
     }
 
     public List<Employee> getAllUsers() {
         return employeeRepository.findAll();
     }
 
-    public void createUser(Employee user) {
-        employeeRepository.save(user);
+    public void createUser(Employee employee) {
+        employeeRepository.save(employee);
     }
 
-    public void updateUser(Employee user) {
-        employeeRepository.save(user);
+    public void updateUser(Employee employee) {
+        employeeRepository.save(employee);
     }
 
-    public void deleteUser(Long userId) {
-        employeeRepository.deleteById(Long.valueOf(userId));
+    public void deleteUser(Long employeeId) {
+        employeeRepository.deleteById(employeeId);
     }
-
-    public Employee getEmployeeById(Long employeeId) {
-        return employeeRepository.getReferenceById(Long.valueOf(employeeId));
-    }
-
 }

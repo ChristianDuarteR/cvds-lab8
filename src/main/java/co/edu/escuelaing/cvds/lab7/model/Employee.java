@@ -56,8 +56,8 @@ public class Employee {
         this.company = company;
         this.byologicSex = byologicSex;
     }
-    public Employee( String firtsName, String lastName, String role, double salary, String company, String byologicSex) {
-        this.firstName = firtsName;
+    public Employee( String firstName, String lastName, String role, double salary, String company, String byologicSex) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
@@ -71,8 +71,8 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public void setFirtsName(String firtsName) {
-        this.firstName = firtsName;
+    public void setFirstNameName(String firstName) {
+        this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {

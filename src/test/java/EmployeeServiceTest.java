@@ -11,7 +11,7 @@ public class EmployeeServiceTest {
     @Test
     public void GivenAnEmployeeWhenSelectShouldBeOK() {
         EmployeeService employeeService = new EmployeeService(mockEmployeeRepository());
-        Employee empleado = employeeService.getUserById(1L);
+        Employee empleado = employeeService.getEmployeeById(1L);
         assertNotNull(empleado);
         assertEquals(1L, empleado.getEmployeeId());
     }
@@ -19,7 +19,7 @@ public class EmployeeServiceTest {
     @Test
     public void GivenNoEmployeesWhenSelectAnEmployeeShouldBeNull() {
         EmployeeService employeeService = new EmployeeService(mockEmployeeRepository());
-        Employee empleado = employeeService.getUserById(999L);
+        Employee empleado = employeeService.getEmployeeById(999L);
         assertNull(empleado);
     }
 
@@ -30,7 +30,7 @@ public class EmployeeServiceTest {
 
         employeeService.createUser(nuevoEmpleado);
 
-        Employee empleadoCreado = employeeService.getUserById(nuevoEmpleado.getEmployeeId());
+        Employee empleadoCreado = employeeService.getEmployeeById(nuevoEmpleado.getEmployeeId());
         assertNotNull(empleadoCreado);
         assertEquals(nuevoEmpleado.getFirstName(), empleadoCreado.getFirstName());
     }
@@ -39,7 +39,7 @@ public class EmployeeServiceTest {
     public void GivenAnEmployeeWhenDeletShouldOk() {
         EmployeeService employeeService = new EmployeeService(mockEmployeeRepository());
         employeeService.deleteUser(1L);
-        Employee empleadoEliminado = employeeService.getUserById(1L);
+        Employee empleadoEliminado = employeeService.getEmployeeById(1L);
         assertNull(empleadoEliminado);
     }
 
@@ -47,7 +47,7 @@ public class EmployeeServiceTest {
     public void GivenAnEmployeeRegisteredWhenDeletAndSelectShouldBeNull(){
         EmployeeService employeeService = new EmployeeService(mockEmployeeRepository());
         employeeService.deleteUser(1L);
-        Employee empleadoEliminado = employeeService.getUserById(1L);
+        Employee empleadoEliminado = employeeService.getEmployeeById(1L);
         assertNull(empleadoEliminado);
     }
 
