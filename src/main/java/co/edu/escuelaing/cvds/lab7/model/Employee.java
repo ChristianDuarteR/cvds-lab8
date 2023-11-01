@@ -38,7 +38,7 @@ public class Employee {
 
     @Getter
     @Column(name = "BIOLOGICSEX")
-    public String byologicSex;
+    public String biologicSex;
 
     public Employee() {
     }
@@ -47,22 +47,22 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-     public Employee(Long employeeId, String firtsName, String lastName, String role, double salary, String company, String byologicSex) {
+     public Employee(Long employeeId, String firstName, String lastName, String role, double salary, String company, String biologicSex) {
         this.employeeId = employeeId;
-        this.firstName = firtsName;
-        this.lastName = lastName;
-        this.role = role;
-        this.salary = salary;
-        this.company = company;
-        this.byologicSex = byologicSex;
-    }
-    public Employee( String firstName, String lastName, String role, double salary, String company, String byologicSex) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
         this.company = company;
-        this.byologicSex = byologicSex;
+        this.biologicSex = biologicSex;
+    }
+    public Employee( String firstName, String lastName, String role, double salary, String company, String biologicSex) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.role = role;
+        this.salary = salary;
+        this.company = company;
+        this.biologicSex = biologicSex;
     }
     // setters
 
@@ -91,8 +91,8 @@ public class Employee {
         this.company = company;
     }
 
-    public void setByologicSex(String byologicSex) {
-        this.byologicSex = byologicSex;
+    public void setBiologicSex(String byologicSex) {
+        this.biologicSex = byologicSex;
     }
 
     // equals and hashcode
@@ -100,11 +100,11 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role) && Objects.equals(company, employee.company) && Objects.equals(byologicSex, employee.byologicSex);
+        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role) && Objects.equals(company, employee.company) && Objects.equals(biologicSex, employee.biologicSex);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, firstName, lastName, role, salary, company, byologicSex);
+        return Objects.hash(employeeId, firstName, lastName, role, salary, company, biologicSex);
     }
 }
