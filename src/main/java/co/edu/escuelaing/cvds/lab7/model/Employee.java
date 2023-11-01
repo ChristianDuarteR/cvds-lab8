@@ -2,6 +2,7 @@ package co.edu.escuelaing.cvds.lab7.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
 
 import java.util.Objects;
 
@@ -9,25 +10,33 @@ import java.util.Objects;
 @Entity
 @Table(name = "EMPLOYEE")
 public class Employee {
+    // Getters
+    @Getter
     @Id
     @Column(name = "EMPLOYEE_ID")
     public Long employeeId;
 
+    @Getter
     @Column(name = "FIRST_NAME")
     public String firstName;
 
+    @Getter
     @Column(name = "LAST_NAME")
     public String lastName;
 
+    @Getter
     @Column(name = "ROLE")
     public String role;
 
+    @Getter
     @Column(name = "SALARY")
     public Double salary;
 
+    @Getter
     @Column(name = "COMPANY")
     public String company;
 
+    @Getter
     @Column(name = "BIOLOGICSEX")
     public String byologicSex;
 
@@ -55,32 +64,6 @@ public class Employee {
         this.company = company;
         this.byologicSex = byologicSex;
     }
-
-    // Getters
-    public Long getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getFirtsName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public String getCompany() { return company; }
-
-    public String getByologicSex() { return byologicSex; }
-
     // setters
 
 
@@ -117,11 +100,11 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role);
+        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role) && Objects.equals(company, employee.company) && Objects.equals(byologicSex, employee.byologicSex);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, firstName, lastName, role, salary);
+        return Objects.hash(employeeId, firstName, lastName, role, salary, company, byologicSex);
     }
 }
