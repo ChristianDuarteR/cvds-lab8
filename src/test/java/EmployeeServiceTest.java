@@ -25,7 +25,7 @@ public class EmployeeServiceTest {
 
     @Test
     public void GivenNoEmployeesWhenCreateAnEmployeeShouldBeOk() {
-        Employee nuevoEmpleado = new Employee(1L,"Juan", "Pérez", "Desarrollador", 3000.0);
+        Employee nuevoEmpleado = new Employee(1L,"Juan", "Pérez", "Desarrollador", 3000.0,"Google","Hombre");
         EmployeeService employeeService = new EmployeeService(mockEmployeeRepository());
 
         employeeService.createUser(nuevoEmpleado);
@@ -54,14 +54,13 @@ public class EmployeeServiceTest {
     private EmployeeRepository mockEmployeeRepository() {
         EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
 
-        Employee empleadoEsperado = new Employee(1L, "Juan", "Pérez", "Desarrollador", 3000.0);
+        Employee empleadoEsperado = new Employee(1L, "Juan", "Pérez", "Desarrollador", 3000.0,"Google","Hombre");
         when(employeeRepository.findById(1L)).thenReturn(Optional.of(empleadoEsperado));
         when(employeeRepository.findById(999L)).thenReturn(Optional.empty());
 
         doAnswer(invocation -> {
             Employee employeeToSave = invocation.getArgument(0);
             if (employeeToSave.getEmployeeId() == null) {
-                // Simular la generación de un nuevo ID para el empleado
                 employeeToSave.setEmployeeId(2L);
             }
             return employeeToSave;
@@ -70,8 +69,6 @@ public class EmployeeServiceTest {
         doAnswer(invocation -> {
             Long idToDelete = invocation.getArgument(0);
             if (idToDelete.equals(1L)) {
-                // Simular la eliminación del empleado con ID 1
-                // Haciendo que la siguiente búsqueda retorne nulo
                 when(employeeRepository.findById(1L)).thenReturn(Optional.empty());
             }
             return null;
