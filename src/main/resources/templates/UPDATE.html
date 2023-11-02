@@ -18,12 +18,13 @@
 
     <div class="card-body">
       <form th:action="@{'/update/' + ${employee.employeeId}}" method="post">
-        <input type="hidden" id="employeeId" name="employeeId" th:value="${employee.employeeId}" />
+        <input type="hidden" id="employeeId" name="employeeId"
+               th:value="${employee.employeeId}" />
 
         <div class="mb-3">
-          <label for="firstName" class="form-label">First Name:</label>
-          <input type="text" class="form-control" id="firstName" name="firstName"
-                 th:value="${employee.firstname}" required>
+          <label for="firstname" class="form-label">First Name:</label>
+          <input type="text" class="form-control" id="firstname" name="firstName"
+                 th:value="${employee.getFirst_name}" required>
         </div>
         <div class="mb-3">
           <label for="lastName" class="form-label">Last Name:</label>
