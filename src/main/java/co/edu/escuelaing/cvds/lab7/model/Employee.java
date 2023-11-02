@@ -71,8 +71,8 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    public void setFirstNameName(String firstName) {
-        this.firstname = firstName;
+    public void setFirstNameName(String firstname) {
+        this.firstname = firstname;
     }
 
     public void setLastName(String lastName) {
