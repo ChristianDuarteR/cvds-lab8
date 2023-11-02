@@ -18,7 +18,7 @@ public class Employee {
 
     @Getter
     @Column(name = "FIRST_NAME")
-    public String firstName;
+    public String firstname;
 
     @Getter
     @Column(name = "LAST_NAME")
@@ -47,17 +47,17 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-     public Employee(Long employeeId, String firstName, String lastName, String role, double salary, String company, String biologicSex) {
+     public Employee(Long employeeId, String firstname, String lastName, String role, double salary, String company, String biologicSex) {
         this.employeeId = employeeId;
-        this.firstName = firstName;
+        this.firstname = firstname;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
         this.company = company;
         this.biologicSex = biologicSex;
     }
-    public Employee( String firstName, String lastName, String role, double salary, String company, String biologicSex) {
-        this.firstName = firstName;
+    public Employee(String firstname, String lastName, String role, double salary, String company, String biologicSex) {
+        this.firstname = firstname;
         this.lastName = lastName;
         this.role = role;
         this.salary = salary;
@@ -72,7 +72,7 @@ public class Employee {
     }
 
     public void setFirstNameName(String firstName) {
-        this.firstName = firstName;
+        this.firstname = firstName;
     }
 
     public void setLastName(String lastName) {
@@ -100,11 +100,11 @@ public class Employee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Employee employee)) return false;
-        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role) && Objects.equals(company, employee.company) && Objects.equals(biologicSex, employee.biologicSex);
+        return Double.compare(salary, employee.salary) == 0 && Objects.equals(employeeId, employee.employeeId) && Objects.equals(firstname, employee.firstname) && Objects.equals(lastName, employee.lastName) && Objects.equals(role, employee.role) && Objects.equals(company, employee.company) && Objects.equals(biologicSex, employee.biologicSex);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, firstName, lastName, role, salary, company, biologicSex);
+        return Objects.hash(employeeId, firstname, lastName, role, salary, company, biologicSex);
     }
 }

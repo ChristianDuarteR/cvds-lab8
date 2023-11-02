@@ -32,7 +32,7 @@ public class EmployeeServiceTest {
 
         Employee empleadoCreado = employeeService.getEmployeeById(nuevoEmpleado.getEmployeeId());
         assertNotNull(empleadoCreado);
-        assertEquals(nuevoEmpleado.getFirstName(), empleadoCreado.getFirstName());
+        assertEquals(nuevoEmpleado.getFirstname(), empleadoCreado.getFirstname());
     }
 
     @Test
