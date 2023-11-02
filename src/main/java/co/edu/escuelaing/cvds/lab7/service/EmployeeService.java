@@ -48,7 +48,7 @@ public class EmployeeService {
         List<Employee> employees = new ArrayList<>();
         for (int i = 0; i < numEmployees; i++) {
             Employee employee = createRandomEmployee();
-            employees.add(employee);
+            employeeRepository.save(employee);
         }
 
         return employees;
