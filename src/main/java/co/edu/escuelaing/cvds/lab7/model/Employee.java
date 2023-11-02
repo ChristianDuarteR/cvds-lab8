@@ -3,6 +3,7 @@ package co.edu.escuelaing.cvds.lab7.model;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Objects;
 
@@ -106,5 +107,18 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(employeeId, first_name, lastName, role, salary, company, biologicSex);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", first_name='" + first_name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", role='" + role + '\'' +
+                ", salary=" + salary +
+                ", company='" + company + '\'' +
+                ", biologicSex='" + biologicSex + '\'' +
+                '}';
     }
 }
