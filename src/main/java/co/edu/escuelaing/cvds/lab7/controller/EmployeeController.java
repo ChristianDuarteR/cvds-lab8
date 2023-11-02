@@ -31,7 +31,6 @@ public class EmployeeController {
 
     @PostMapping("/employees/create")
     public String createEmployee(@ModelAttribute Employee employee) {
-        System.out.println(employee);
         employeeService.createUser(employee);
         return "redirect:/employees";
     }
